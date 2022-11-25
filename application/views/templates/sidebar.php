@@ -2,7 +2,7 @@
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-warning navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -59,10 +59,31 @@
                 </a>
               </li>
            <li class="nav-item">
-             <a href="<?= base_url('tour') ?>" class="nav-link <?php if ($title=='Tour') {echo 'active';}?>">
-                  <i class="nav-icon fas fa-car-side"></i>
-                  <p>Tour</p>
+            <a href="<?= base_url('wisata') ?>" class="nav-link <?php if ($title=='Wisata') {echo 'active';}?>">
+                  <i class="nav-icon fas fa-map"></i>
+                  <p>Wisata</p>
                 </a>
+              </li>
+              <li class="nav-item menu-open">
+             <a href="<?= base_url('') ?>" class="nav-link <?php if ($title=='Galeri') {echo 'active';}?>">
+                  <i class="nav-icon fas fa-car-side"></i>
+                  <p>Tour
+                  <i class="right fas fa-angle-left"></i> 
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= base_url('galeri') ?>" class="nav-link <?php if ($title=='Galeri') {echo 'active';}?>">
+                  <i class="far fa-image nav-icon"></i>
+                  <p>Galeri</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('kendaraan') ?>" class="nav-link <?php if ($title=='Kendaraan') {echo 'active';}?>">
+                  <i class="nav-icon fas fa-car"></i>
+                  <p>Kendaraan</p>
+                </a>
+              </li>
               </li>
         </ul>
       </nav>
