@@ -83,6 +83,26 @@ class Customer extends CI_Controller {
         $this->load->view('print_customer', $data);
     }
 
+    public function pdf()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['customer'] = $this->customer_model->get_data('tbl_customer')->result();
+        $this->load->view('laporan_customer', $data);
+
+        $paper_size = 'A4';
+        $orientation  = 'potrait';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream('laporan_customer.pdf', array('Attachment' =>0 ));
+
+
+
+    }
+
     public function _rules()
     {
         $this->form_validation->set_rules('nama_customer','Nama Customer','required', array(

@@ -2,41 +2,46 @@
 
 
 <div class="card">
-              <div class="card-header">
-                <a href="<?= base_url('customer/tambah')?>"class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>Tambah Customer</a>
-                <a href="<?= base_url('customer/print')?>"class="btn btn-info btn-sm"><i class="fas fa-print"></i>Print</a>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr class="text-center">
-                    <th>ID</th>
-                    <th>NAMA</th>
-                    <th>TUJUAN</th>
-                    <th>KENDARAAN</th>
-                    <th>ACTION</th>
-                  </tr>
-                  </thead>
-                  <?php $no = 1;
-                  foreach($customer as $cust) : ?>
-                    <tbody>
-                    <tr class="text-center">
-                        <td><?= $no++ ?></td>
-                        <td><?= $cust->nama_customer ?></td>
-                        <td><?= $cust->tujuan ?></td>
-                        <td><?= $cust->nama_kendaraan ?></td>
-                        <td>
-                            <button data-toggle="modal" data-target="#edit<?= $cust->id_customer ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                            <a href="<?= base_url('customer/delete/' . $cust->id_customer)?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin menghapus data ini?')"><i class="fas fa-trash"></i></a>
-                        </td>
-                    </tr>
-                    </tbody>
-                  <?php endforeach ?>
-                </table>
-            </div>
-</div>          
-         
+  <div class="card-header">
+    <a href="<?= base_url('customer/tambah') ?>" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>Tambah Customer</a>
+    <a href="<?= base_url('customer/print') ?>" class="btn btn-info btn-sm"><i class="fas fa-print"></i>Print</a>
+    <a href="<?= base_url('customer/pdf') ?>" class="btn btn-success btn-sm"><i class="fas fa-file"></i>Export PDF</a>
+  
+    
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+    <table id="example1" class="table table-bordered table-striped">
+      <thead>
+        <tr class="text-center">
+          <th>ID</th>
+          <th>NAMA</th>
+          <th>TUJUAN</th>
+          <th>KENDARAAN</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <?php $no = 1;
+      foreach ($customer as $cust) : ?>
+        <tbody>
+          <tr class="text-center">
+            <td><?= $no++ ?></td>
+            <td><?= $cust->nama_customer ?></td>
+            <td><?= $cust->tujuan ?></td>
+            <td><?= $cust->nama_kendaraan ?></td>
+            <td>
+              <button data-toggle="modal" data-target="#edit<?= $cust->id_customer ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+              <a href="<?= base_url('customer/delete/' . $cust->id_customer) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin menghapus data ini?')"><i class="fas fa-trash"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      <?php endforeach ?>
+    </table>
+  </div>
+</div>
+</div>
+</div>
+
 
 
 <!-- Button trigger modal -->
