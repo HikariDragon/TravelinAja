@@ -15,4 +15,14 @@
   <link rel="stylesheet" href="<?= base_url('assets/template') ?>/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('assets/template') ?>/dist/css/adminlte.min.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="<?= base_url('assets/template') ?>/plugins/summernote/summernote-bs4.min.css">
+  <style>
+    body:not(.layout-fixed) .main-sidebar {
+      height: 100%;
+      min-height: 100vh;
+    }
+  </style>
 </head>
+
+

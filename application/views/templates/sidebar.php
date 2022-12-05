@@ -9,10 +9,13 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?= base_url('dashboard') ?>" class="nav-link">Home</a>
+        <a href="http://localhost/travel/dashboard" class="nav-link"><i class="fas fa-house-user">Home</i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?= base_url('contact') ?>" class="nav-link <?php if ($title=='Contact') {echo 'active';}?>">Contact</a>
+        <a href="#" class="nav-link "><i class="fas fa-phone">Contact</i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="<?= base_url('auth/logout')?>" class="nav-link" data-toggle="modal" data-target="#logoutModal"> <i class="fas fa-fw fa-sign-out-alt"></i>Logout</a>
       </li>
     </ul>
   </nav>
@@ -31,10 +34,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="<?= base_url('assets/template/') ?>dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="<?= base_url('assets/template/') ?>dist/img/default.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Admin</a>
+          <a href="#" class="d-block"><?= $user['name'];?></a>
         </div>
       </div>
 
@@ -59,13 +62,13 @@
                 </a>
               </li>
            <li class="nav-item">
-            <a href="<?= base_url('wisata') ?>" class="nav-link <?php if ($title=='Wisata') {echo 'active';}?>">
+            <a href="<?= base_url('wisata') ?>" class="nav-link <?php if ($title=='wisata') {echo 'active';}?>">
                   <i class="nav-icon fas fa-map"></i>
                   <p>Wisata</p>
                 </a>
               </li>
-              <li class="nav-item menu-open">
-             <a href="<?= base_url('') ?>" class="nav-link <?php if ($title=='Galeri') {echo 'active';}?>">
+              <li class="nav-item <?php if ($title=='Galeri'||$title=='Kendaraan') {echo 'menu-open';}?>">
+             <a href="<?= base_url('') ?>" class="nav-link <?php if ($title=='Galeri'||$title=='Kendaraan') {echo 'active';}?>">
                   <i class="nav-icon fas fa-car-side"></i>
                   <p>Tour
                   <i class="right fas fa-angle-left"></i> 
@@ -86,6 +89,12 @@
               </li>
               </li>
         </ul>
+        <li class="nav-item">
+            <a href="#" class="nav-link ">
+                  <i class="fas fa-user-cog"></i>
+                  <p>Profil</p>
+                </a>
+              </li>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
