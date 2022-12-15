@@ -6,12 +6,15 @@ class Wisata extends CI_Controller{
         parent::__construct();
         $this->load->model('wisata_model');
         $this->load->library('upload');
-    }
+		cek_login();
+	}
     public function index()
 	{
-		$data['title'] = 'wisata';
+		$data['title'] = 'Wisata';
         $data['wisata'] = $this->wisata_model->get_data('wisata')->result();
-       
+		$data['user']  = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
         $x['data']=$this->wisata_model->tampil_wisata();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);

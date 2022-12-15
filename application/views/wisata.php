@@ -5,7 +5,7 @@
       
           <div class="card">
             <div class="card-header">
-              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#largeModal"><span class="fa fa-plus"></span> Add New</a>
+              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#largeModal"><span class="fa fa-plus"></span>Tambah Wisata</a>
             </div>
             <!-- /.box-header -->
             <div class="card-body">
@@ -32,7 +32,7 @@
                   <td><img src="<?php echo base_url().'uploads/'.$gambar;?>" style="width:90px;"></td>
                   <td><?php echo $nama_wisata;?></td>
                   <td><?php echo $deskripsi;?></td>
-                  <td>
+                  <td   style="text-align:right;">
                         <a class="btn" data-toggle="modal" data-target="#ModalUpdate<?php echo $id;?>"><span class="fas fa-edit"></span></a>
                         <a class="btn" data-toggle="modal" data-target="#ModalHapus<?php echo $id;?>"><span class="fa fa-trash"></span></a>
                   </td>
