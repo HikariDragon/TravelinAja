@@ -9,9 +9,9 @@ class Customer_model extends CI_Model {
         return $this->db->get($table);
     }
 
-    public function insert_data($data, $table)
+    public function insert_data($data,)
     {
-        $this->db->insert($table, $data);
+        $this->db->insert('tbl_customer', $data);
     }
 
     public function update_data($data, $table)
@@ -25,5 +25,19 @@ class Customer_model extends CI_Model {
         $this->db->where($where);
         $this->db->delete($table);
     }
-	
+	public function join_paket()
+    {
+        $this->db->select('nama_paket');
+        $this->db->from('paket');
+        $this->db->join('tbl_customer', 'paket.idpaket = tbl_customer.id_customer');
+        return $this->db->get();
+
+    }
+
+    public function get_customer()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_customer');
+        return $this->db->get();
+    }
 }
