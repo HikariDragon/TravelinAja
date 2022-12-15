@@ -1,18 +1,16 @@
-<!-- Main content -->
-<section class="content">
-
+ <!-- Main content -->
+ <section class="content">
            
           <div class="card">
             <div class="card-header">
-              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#largeModal"><span class="fa fa-plus"></span> Tambah Galeri</a>
+              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#largeModal"><span class="fa fa-plus"></span> Add New</a>
             </div>
-            <!-- /.box-header -->
+            <!-- /.card-header -->
             <div class="card-body">
-              <table id="example3"  class="table table-bordered table-striped">
+              <table id="example3" class="table table-bordered table-striped" >
                 <thead>
                 <tr>
-          					<th>Gambar</th>
-                    <th>Judul</th>
+          					<th>Cover</th>
           					<th>Album</th>
                     <th style="text-align:right;">Aksi</th>
                 </tr>
@@ -22,16 +20,13 @@
                     $no=0;
                         foreach($data->result_array() as $a):
                             $no++;
-                            $id=$a['id_galeri'];
-                            $jdl_galeri=$a['jdl_galeri'];
-                            $gambar=$a['gbr_galeri'];
-                            $idalbum=$a['albumid'];
-                            $jdl_album=$a['jdl_album'];
+                            $id=$a['idalbum'];
+                            $judul=$a['jdl_album'];
+                            $cover=$a['cover'];
                     ?>
                 <tr>
-                  <td><img class="img-thumbnail" width="90" height="80" src="<?php echo base_url().'uploads/'.$gambar; ?>"></td>
-                  <td style="vertical-align:middle;"><?php echo $jdl_galeri; ?></td>
-                  <td style="vertical-align:middle;"><?php echo $jdl_album; ?></td>
+                  <td><img class="img-thumbnail" width="90" height="80" src="<?php echo base_url().'assets/gambars/'.$cover; ?>"></td>
+                  <td style="vertical-align:middle;"><?php echo $judul; ?></td>
                   <td style="text-align:right;">
                         <a class="btn" data-toggle="modal" data-target="#ModalUpdate<?php echo $id;?>"><span class="fa fa-edit"></span></a>
                         <a class="btn" data-toggle="modal" data-target="#ModalHapus<?php echo $id;?>"><span class="fa fa-trash"></span></a>
@@ -49,16 +44,15 @@
       </div>
       <!-- /.row -->
     </section>
-
-  <!-- ============ MODAL ADD PHOTO =============== -->
+    <!-- ============ MODAL ADD ALBUM =============== -->
 <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
     <div class="modal-header">
-        <h3 class="modal-title" id="myModalLabel">Add Photo</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button> 
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+        <h3 class="modal-title" id="myModalLabel">Add Album</h3>
     </div>
-    <form class="form-horizontal" method="post" action="<?php echo base_url().'galeri/simpan_galeri'?>" enctype="multipart/form-data">
+    <form class="form-horizontal" method="post" action="<?php echo base_url().'album/simpan_album'?>" enctype="multipart/form-data">
         <div class="modal-body">
 
             <div class="form-group">
@@ -69,23 +63,8 @@
             </div>
 
             <div class="form-group">
-                <label class="control-label col-xs-3" >Album</label>
-                <div class="col-xs-8">
-                    <select name="album" class="form-control" required>
-                        <?php               
-                            foreach($alm->result_array() as $i){
-                              $kode=$i['idalbum'];
-                              $nama=$i['jdl_album'];
-                        ?>
-                            <option value='<?php echo $kode?>'><?php echo $nama?></option>
-                        <?php } ?>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-xs-3" >Gambar</label>
-                <div class="col-xs-8">
+                <label class="control-label col-xs-3" >Cover</label>
+                <div class="col-xs-9">
                      <input type="file" name="filefoto" required>
                 </div>
             </div>
@@ -105,51 +84,30 @@
     $no=0;
     foreach($data->result_array() as $a):
       $no++;
-      $id=$a['id_galeri'];
-      $jdl_galeri=$a['jdl_galeri'];
-      $gambar=$a['gbr_galeri'];
-      $idalbum=$a['albumid'];
-      $jdl_album=$a['jdl_album'];
+      $id=$a['idalbum'];
+      $judul=$a['jdl_album'];
+      $cover=$a['cover'];
 ?>
-<!-- ============ MODAL UPDATE PHOTO =============== -->
+<!-- ============ MODAL UPDATE ALBUM =============== -->
 <div class="modal fade" id="ModalUpdate<?php echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-        <h3 class="modal-title" id="myModalLabel">Update Photo</h3>
+        <h3 class="modal-title" id="myModalLabel">Update Album</h3>
     </div>
-    <form class="form-horizontal" method="post" action="<?php echo base_url().'galeri/update_galeri'?>" enctype="multipart/form-data">
+    <form class="form-horizontal" method="post" action="<?php echo base_url().'album/update_album'?>" enctype="multipart/form-data">
         <div class="modal-body">
 
             <div class="form-group">
                 <label class="control-label col-xs-3" >Judul</label>
                 <div class="col-xs-8">
-                    <input name="judul" value="<?php echo $jdl_galeri;?>" class="form-control" type="text" placeholder="Judul" required>
+                    <input name="judul" value="<?php echo $judul;?>" class="form-control" type="text" placeholder="Judul" required>
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="control-label col-xs-3" >Album</label>
-                <div class="col-xs-8">
-                    <select name="album" class="form-control" required>
-                        <?php               
-                            foreach($alm->result_array() as $i):
-                              $kode=$i['idalbum'];
-                              $nama=$i['jdl_album'];
-                        ?>
-                          <?php if($idalbum==$kode):?>
-                            <option value='<?php echo $kode?>' selected><?php echo $nama?></option>
-                          <?php else:?>
-                            <option value='<?php echo $kode?>'><?php echo $nama?></option>
-                          <?php endif;?>
-                        <?php endforeach;?>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-xs-3" >Gambar</label>
+                <label class="control-label col-xs-3" >Cover</label>
                 <div class="col-xs-9">
                      <input type="file" name="filefoto">
                 </div>
@@ -173,24 +131,22 @@
         $no=0;
         foreach($data->result_array() as $a):
             $no++;
-            $id=$a['id_galeri'];
-            $jdl_galeri=$a['jdl_galeri'];
-            $gambar=$a['gbr_galeri'];
-            $idalbum=$a['albumid'];
-            $jdl_album=$a['jdl_album'];
+            $id=$a['idalbum'];
+            $judul=$a['jdl_album'];
+            $cover=$a['cover'];
   ?>
-	<!--Modal Hapus PHOTO-->
+	<!--Modal Hapus ALBUM-->
         <div class="modal fade" id="ModalHapus<?php echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                        <h4 class="modal-title" id="myModalLabel">Hapus Photo</h4>
+                        <h4 class="modal-title" id="myModalLabel">Hapus Album</h4>
                     </div>
-                    <form class="form-horizontal" action="<?php echo base_url().'galeri/hapus_galeri'?>" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="<?php echo base_url().'album/hapus_album'?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">       
 							       <input type="hidden" name="kode" value="<?php echo $id;?>"/> 
-                          <p>Apakah Anda yakin mau menghapus Photo <b><?php echo $jdl_galeri;?></b> ?</p>
+                          <p>Apakah Anda yakin mau menghapus album <b><?php echo $judul;?></b> ?</p>
                                
                     </div>
                     <div class="modal-footer">
