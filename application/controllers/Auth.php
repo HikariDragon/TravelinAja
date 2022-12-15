@@ -52,11 +52,9 @@ class Auth extends CI_Controller{
                     $this->session->set_userdata($data);
                     // cek role
                     if ($user['role_id'] == 1) {
-                        redirect('admin');
+                        redirect('dashboard');
                     } else {
-                        if ($user['image'] == 'default.jpg') {
-                            $this->session->set_flashdata('message', '<div class="alert alert-info alert-message" role="alert">Silahkan Ubah Profile Anda untuk Ubah Photo Profil</div>');
-                        }
+                        $this->session->set_userdata($data);    
                         redirect('user');
                     }
                 } else {
