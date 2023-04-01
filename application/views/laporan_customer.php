@@ -15,7 +15,7 @@
         <tr>
             <td><?= $no++ ?></td>
             <td><?= $cust->nama_customer ?></td>
-            <td><?= $cust->tujuan ?></td>
+            <td><?= $cust->nama_paket ?></td>
             <td><?= $cust->nama_kendaraan ?></td>
         
         </tr>

@@ -2,7 +2,7 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a class="h1"><b>Travelin</b>Aja</a>
+      <a class="h1"><b>Travelin</b>Aja </a>
     </div>
     <div class="card-body">
       <p class="login-box-msg"><?= $this->session->flashdata('message');?></p>
@@ -36,10 +36,6 @@
         </div>
       </form>
       <!-- /.social-auth-links -->
-
-      <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p>
       <p class="mb-0">
         <a href="<?=  base_url('auth/registration');?>" class="text-center">Register a new membership</a>
       </p>

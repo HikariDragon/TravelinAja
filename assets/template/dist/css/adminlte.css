@@ -11576,6 +11576,14 @@ body:not(.layout-fixed).layout-navbar-fixed.text-sm .wrapper .main-sidebar .side
   }
 }
 
+@media print{
+  .noprint{
+      display:none;
+  }
+}
+
+
+
 @media (min-width: 992px) {
   .layout-lg-footer-fixed .wrapper .control-sidebar {
     bottom: 0;

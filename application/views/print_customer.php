@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pritn Customer</title>
+    <title>Print Customer</title>
  </head>
  <body>
     <table>
         <tr>
         <th>ID</th>
         <th>NAMA</th>
-        <th>TUJUAN</th>
+        <th>PAKET</th>
         <th>KENDARAAN</th>
         </tr>
         <?php $no = 1;
@@ -19,7 +19,7 @@
         <tr>
             <td><?= $no++ ?></td>
             <td><?= $cust->nama_customer ?></td>
-            <td><?= $cust->tujuan ?></td>
+            <td><?= $cust->nama_paket ?></td>
             <td><?= $cust->nama_kendaraan ?></td>
         </tr>
         <?php endforeach  ?>
@@ -30,3 +30,4 @@
     </script>
  </body>
  </html>
+

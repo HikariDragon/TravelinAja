@@ -52,7 +52,7 @@
                                      <label class="label label-success">LUNAS</label>
                                  <?php else : ?>
 
-                                     <a class="btn btn-xs btn-info" href="<?php echo base_url() . 'orders/pembayaran_selesai/' . $id ?>" title="Pembayaran Selesai"><span class="fa fa-check" data-toggle="modal"></span> </a>
+                                     <a class="btn btn-xs btn-info" href="<?php echo base_url() . 'orders/pembayaran_selesai/' . $a['id_order'] ?>" title="Pembayaran Selesai"><span class="fa fa-check" data-toggle="modal"></span> </a>
                                      <a class="btn btn-xs btn-warning" href="#modalEdit<?php echo $id ?>" data-toggle="modal" title="Edit"><span class="fa fa-edit"></span> </a>
                                      <a class="btn btn-xs btn-danger" href="#ModalHapus<?php echo $id; ?>" data-toggle="modal" title="Batalkan"><span class="fa fa-trash"></span> </a>
                                  <?php endif ?>

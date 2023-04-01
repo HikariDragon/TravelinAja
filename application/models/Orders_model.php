@@ -57,4 +57,21 @@ class Orders_model extends CI_Model
         $hasil = $this->db->query("delete from pembayaran WHERE id_bayar='$kode'");
         return $hasil;
     }
+
+    public function getOrdersWhere($where = null)
+    {
+        return $this->db->get_where('orders', $where);
+    }
+
+    public function income($field, $where)
+    {
+        $this->db->select_sum($field);
+        if (!empty($where) && count($where) > 0) {
+            $this->db->where($where);
+        }
+        $this->db->from('tbl_penghasilan');
+        return $this->db->get()->row($field);
+    }
+
+    
 }

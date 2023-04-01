@@ -19,9 +19,10 @@ class Orders extends CI_Controller{
         $this->load->view('templates/footer');
         
     }
-    function pembayaran_selesai(){
+    function pembayaran_selesai($id){
         $id=$this->uri->segment(3);
         $this->orders_model->bayar_selesai($id);
+        
 
         echo $this->session->set_flashdata('msg','success');
         redirect('orders');
@@ -39,5 +40,10 @@ class Orders extends CI_Controller{
         $this->orders_model->hapus_orders($kode);
         echo $this->session->set_flashdata('msg','success-hapus');
         redirect('orders');
+    }
+    public function print()
+    {
+        $data['orders'] = $this->orders_model->get_data('orders')->result();
+        $this->load->view('print_orders', $data);
     }
 }

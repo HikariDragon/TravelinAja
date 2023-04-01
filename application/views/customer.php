@@ -88,6 +88,16 @@
               <?= form_error('kids', '<div class="text-small text-danger">', '</div>');  ?>
             </div>
             <div class="form-group">
+      <label>Keberangkatan</label>
+      <input type="date" name="berangkat" class="form-control">
+      <?= form_error('berangkat','<div class="text-small text-danger">','</div>');  ?>
+    </div>
+    <div class="form-group">
+      <label>Kepulangan</label>
+      <input type="date" name="kembali" class="form-control">
+      <?= form_error('kembali','<div class="text-small text-danger">','</div>');  ?>
+    </div>
+            <div class="form-group">
               <label>Kendaraan</label>
               <input type="text" name="nama_kendaraan" class="form-control" value="<?= $cust->nama_kendaraan; ?>">
               <?= form_error('nama_kendaraan', '<div class="text-small text-danger">', '</div>');  ?>
